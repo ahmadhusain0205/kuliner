@@ -40,8 +40,8 @@
         <div class="col-lg">
             <img src="<?= base_url('assets/img/peyek.jpg') ?>" alt="workingspace" class="img-fluid" style="border-radius: 10px;" />
         </div>
-        <div class="col-lg" style="margin-top: 60px;">
-            <h3>Bisa <span>dinikmati</span> di <br /> <span>Rumah</span> Anda</h3>
+        <div class="col-lg text-center" style="margin-top: 60px;">
+            <h3><span>Peyek Petho</span></h3>
             <p>
                 Nikmati kelezatan makanan khas <b>Desa Paremono</b>.
             </p>
