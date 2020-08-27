@@ -13,7 +13,7 @@
 /* jumbotron */
 
 .jumbotron {
-    background-image: url(/img/jumbotron-bg.jpg);
+    background-image: url(../img/background.jpg);
     background-size: cover;
     height: 540px;
     text-align: center;
@@ -61,7 +61,6 @@
 .info-panel img {
     width: 80px;
     height: 80px;
-    margin-right: 20px;
     margin-bottom: 20px;
 }
 
