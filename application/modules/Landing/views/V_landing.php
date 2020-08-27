@@ -16,23 +16,17 @@
         <div class="col-10 info-panel">
             <div class="row text-center">
                 <div class="col-lg">
-                    <i class="fas fa-heartbeat text-danger"></i> Health
-                    <br>
-                    <br>
+                    <img src="<?= base_url('assets/img/kenyamanan.png') ?>" alt="employee" class="float-left" style="size: 1px;" />
                     <h4>Nyaman</h4>
                     <p>Membuat Nyaman.</p>
                 </div>
                 <div class="col-lg">
-                    <i class="fas fa-guitar text-primary"></i> Games
-                    <br>
-                    <br>
+                    <img src="<?= base_url('assets/img/hiburan.png'); ?>" alt="hiburan" class="float-left" style="size: 1px;" />
                     <h4>Hiburan</h4>
                     <p>Banyaknya Hiburan.</p>
                 </div>
                 <div class="col-lg">
-                    <i class="fas fa-utensils text-warning"></i> Culinary
-                    <br>
-                    <br>
+                    <img src="<?= base_url('assets/img/kuliner.png'); ?>" alt="kuliner" class="float-left" style="size: 1px;" />
                     <h4>Kuliner</h4>
                     <p>Aneka Ragam Kuliner.</p>
                 </div>
@@ -44,7 +38,7 @@
     <!-- working space -->
     <div class="row workingspace">
         <div class="col-lg">
-            <img src="<?= base_url('assets/img/peyek.jpg') ?>" alt="workingspace" class="img-fluid" />
+            <img src="<?= base_url('assets/img/peyek.jpg') ?>" alt="workingspace" class="img-fluid" style="border-radius: 10px;" />
         </div>
         <div class="col-lg" style="margin-top: 60px;">
             <h3>Bisa <span>dinikmati</span> di <br /> <span>Rumah</span> Anda</h3>
