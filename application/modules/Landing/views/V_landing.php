@@ -1,6 +1,7 @@
 <!-- jumbotron -->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
+        <div><?= $this->session->flashdata('pesan'); ?></div>
         <h1 class="display-4">
             Dapatkan <span>Kenyamanan, Keindahan</span><br />
             and <span>Kepuasan</span> Bersama Kami

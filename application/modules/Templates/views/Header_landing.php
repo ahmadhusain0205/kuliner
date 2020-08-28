@@ -59,18 +59,33 @@
                     </button>
                     <h5 class="text-center text-primary">JOIN US</h5>
                     <hr>
-                    <form class="user" method="POST" action="<?= base_url('Landing/add'); ?>" class="user">
+                    <form class="user" method="POST" action="<?= base_url('Landing/join'); ?>">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control form-control-user" placeholder="Masukan Username">
+                            <input type="text" class="form-control form-control-user" id="name" placeholder="Full Name" name="name" value="<?= set_value('name'); ?>">
+                            <!-- menampilkan error jika nama di kosongkan -->
+                            <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control form-control-user" placeholder="Masukan Password">
+                            <input type="text" class="form-control form-control-user" id="email" placeholder="Email Address" name="email" value="<?= set_value('email'); ?>">
+                            <!-- menampilkan error jika email di kosongkan -->
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
-                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user" id="alamat" placeholder="Address" name="alamat" value="<?= set_value('alamat'); ?>">
+                            <!-- menampilkan error jika alamat di kosongkan -->
+                            <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
+                                <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                            Register
+                            Register Account
                         </button>
                     </form>
                 </div>
@@ -89,16 +104,17 @@
                     </button>
                     <h5 class="text-center text-primary">SIGN IN</h5>
                     <hr>
-                    <form class="user" method="POST" action="<?= base_url('Landing/login_aksi'); ?>" class="user">
+                    <form class="user" method="POST" action="<?= base_url('Landing/login_aksi'); ?>">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control form-control-user" placeholder="Masukan Username">
+                            <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Enter Email Address..." value="<?= set_value('email'); ?>">
+                            <!-- menampilkan error jika email di kosongkan -->
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control form-control-user" placeholder="Masukan Password">
+                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                            <!-- menampilkan error jika password di kosongkan -->
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
-                        <hr>
                         <button type="submit" class="btn btn-primary btn-user btn-block">
                             Login
                         </button>
