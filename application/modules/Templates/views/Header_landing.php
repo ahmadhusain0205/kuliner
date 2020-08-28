@@ -102,7 +102,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h5 class="text-center text-primary">SIGN IN</h5>
+                    <h5 class="text-center text-primary">LOGIN</h5>
                     <hr>
                     <form class="user" method="POST" action="<?= base_url('Landing/login_aksi'); ?>">
                         <div class="form-group">

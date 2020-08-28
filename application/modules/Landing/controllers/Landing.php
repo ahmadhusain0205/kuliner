@@ -4,10 +4,17 @@ class Landing extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        //validasi password
-        $this->form_validation->set_rules('password', 'Password', 'required|trim', [
-            'required' => 'Password harus diisi'
-        ]);
+    }
+    function index()
+    {
+        $data['judul'] = 'Landing Page';
+        $this->load->view('Templates/Header_landing', $data);
+        $this->load->view('V_landing', $data);
+        $this->load->view('Templates/Footer_landing');
+    }
+
+    function join()
+    {
         //validasi nama
         $this->form_validation->set_rules('name', 'Name', 'required|trim', [
             'required' => 'Nama harus diisi'
@@ -28,17 +35,6 @@ class Landing extends CI_Controller
             'required' => 'Password harus diisi'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-    }
-    function index()
-    {
-        $data['judul'] = 'Landing Page';
-        $this->load->view('Templates/Header_landing', $data);
-        $this->load->view('V_landing', $data);
-        $this->load->view('Templates/Footer_landing');
-    }
-
-    function join()
-    {
         //validasi gagal
         if ($this->form_validation->run() == false) {
             redirect('Landing');
@@ -59,16 +55,25 @@ class Landing extends CI_Controller
             //kirim data ke database dengan table user
             $this->db->insert('user', $data);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Selamat!</strong> Akun anda sudah terdaftar.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>');
+                <strong>Selamat!</strong> Akun anda sudah terdaftar.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
             redirect('Landing');
         }
     }
     function login_aksi()
     {
+        //validasi email
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'is_unique' => 'Email sudah terdaftar',
+            'required' => 'Email harus diisi'
+        ]);
+        //validasi password
+        $this->form_validation->set_rules('password', 'Password', 'required|trim', [
+            'required' => 'Password harus diisi'
+        ]);
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
@@ -82,10 +87,17 @@ class Landing extends CI_Controller
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
-                        'role_id' => $user['role_id']
+                        'name' => $user['name'],
+                        'id_role' => $user['id_role']
                     ];
                     //simpan data ke session
                     $this->session->set_userdata($data);
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Selamat!</strong> Anda berhasil login.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>');
                     redirect('Dashboard');
                 }
                 //jika salah
